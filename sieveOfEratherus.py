@@ -11,3 +11,20 @@
         # Iterate through init_list, also remove all multiples of number
     # If number not prime 
         # Iterate through init_list, also remove all multiples of number
+
+startNum = 1
+endNum = 2
+
+def isPrime(num):
+    # Iterate through everything below
+    # return false and break if divides no remainder (MOD)
+    if num <= 1:
+        return False
+    if num > 2:
+        for belowNum in range(2, num):
+            if ((num % belowNum) == 0):
+                return False
+                break
+        return True
+    else:
+        return True
