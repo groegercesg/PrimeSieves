@@ -15,16 +15,16 @@
 def isPrime(num):
     # Iterate through everything below
     # return false and break if divides no remainder (MOD)
-    if num <= 1:
-        return False
-    if num > 2:
+    if (num <= 1):
+        return "Special"
+    elif (num >= 2):
         for belowNum in range(2, num):
             if ((num % belowNum) == 0):
-                return False
+                return "False"
                 break
-        return True
+        return "True"
     else:
-        return True
+        raise ValueError
 
 # Function to make the initial List
 def makeInitList(startNum, endNum):
@@ -46,10 +46,9 @@ def findPosition(inList, num):
 # Function to hunt down and clean out the multiples
 def multiplesClean(inList, num):
     # We assume inList is in order, with max at inList(len(inList)-1)
-    print(inList)
     currentMult = num
     # We continue iterating if not over the end
-    while currentMult <= inList[len(inList) - 1]:
+    while (inList != [] and currentMult <= inList[len(inList) - 1]):
         # find position of currentMult in inList
         currentPosition = findPosition(inList, currentMult)
         if currentPosition != -1:
@@ -60,26 +59,42 @@ def multiplesClean(inList, num):
         else:
             # We couldn't find the current multiple in out list,
             # As we got -1 (the not found value) back from the search
-            raise ValueError
+            # It might have been removed by a previous multiples check
+            # like 6 is a multiple of 2 and 3
+            # So we just increment and continue
+            currentMult += num
 
     # our current multiple is now too big, so let's stop
     return inList
 
 
 def sieve(startNum, endNum):
+    # Validation
+    if startNum < 0 or endNum < 0:
+        print("Primes don't exist in negative numbers")
+        return []
+
     # Creation of lists
     initList = makeInitList(startNum, endNum)
     primeList = []
 
     # Iteration method to loop through list Elements
     while initList != []:
+        primeCheck = isPrime(initList[0])
         # If initList[0] is Prime, Add to primeList
         # multiples Clean
         # remove from initList (handled by: multiplesClean)
-        if (isPrime()):
-            print("Found a prime: " + initList[0])
+        if (primeCheck == "True"):
+            #print("Found a prime: " + str(initList[0]))
             primeList.append(initList[0])
             initList = multiplesClean(initList, initList[0])
+        # If not a prime, clear it and the multiples out
+        elif (primeCheck == "False"):
+            initList = multiplesClean(initList, initList[0])
+        # If a special, like 0 or 1
+        elif (primeCheck == "Special"):
+            del initList[0]
+        else:
+            raise ValueError
 
-
-        del initList[0]
+    return primeList
