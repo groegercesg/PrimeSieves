@@ -12,9 +12,6 @@
     # If number not prime 
         # Iterate through init_list, also remove all multiples of number
 
-startNum = 1
-endNum = 2
-
 def isPrime(num):
     # Iterate through everything below
     # return false and break if divides no remainder (MOD)
@@ -28,3 +25,13 @@ def isPrime(num):
         return True
     else:
         return True
+
+def makeInitList(startNum, endNum):
+    initList = []
+    for i in range(startNum, endNum+1):
+        initList.append(i)
+    return initList
+
+def listTest(startNum, endNum):
+    initList = makeInitList(startNum, endNum)
+    print(initList)

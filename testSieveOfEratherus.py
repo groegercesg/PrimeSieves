@@ -1,4 +1,4 @@
-from sieveOfEratherus import isPrime
+from sieveOfEratherus import isPrime, listTest
 
-print(isPrime(17))
+listTest(4, 7)
 
