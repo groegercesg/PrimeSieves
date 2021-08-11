@@ -6,7 +6,7 @@
 
 # Algo:
     # Make an initial list of all numbers to test
-    # Iterate through list
+    # Iterate through list - while not empty
     # If number prime, remove from init_list, add to prime_list
         # Iterate through init_list, also remove all multiples of number
     # If number not prime 
@@ -32,6 +32,12 @@ def makeInitList(startNum, endNum):
         initList.append(i)
     return initList
 
-def listTest(startNum, endNum):
+def sieve(startNum, endNum):
+    # Creation of lists
     initList = makeInitList(startNum, endNum)
-    print(initList)
+    primeList = []
+
+    # Iteration method to loop through list Elements
+    while initList != []:
+        print(initList)
+        del initList[0]
