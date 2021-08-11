@@ -67,12 +67,24 @@ def multiplesClean(inList, num):
     # our current multiple is now too big, so let's stop
     return inList
 
-
+# Function to return the primes in the range provided
 def sieve(startNum, endNum):
     # Validation
-    if startNum < 0 or endNum < 0:
-        print("Primes don't exist in negative numbers")
+    if (not isinstance(startNum, int) or not isinstance(endNum, int)):
+        print("ERROR: For the range, you must enter integers")
         return []
+    elif (endNum < startNum):
+        print("ERROR: the Starting Number cannot be bigger than the Ending Number")
+        return []
+    elif (startNum < 0 and endNum < 0):
+        # There are no primes below 0
+        return []
+    elif (startNum < 0):
+        # Given our second validation step, if we reach here:
+        # startNum being negative
+        # then endNum must at least be 0, if not more
+        # let's make startNum = 0, the first postive number and go from there
+        startNum = 0
 
     # Creation of lists
     initList = makeInitList(startNum, endNum)

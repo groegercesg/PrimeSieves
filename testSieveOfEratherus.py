@@ -1,3 +1,3 @@
 from sieveOfEratherus import sieve
 
-print(sieve(1, 7))
+print(sieve(-5,-1))
