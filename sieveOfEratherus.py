@@ -26,13 +26,35 @@ def isPrime(num):
     else:
         return True
 
+# Function to make the initial List
 def makeInitList(startNum, endNum):
     initList = []
     for i in range(startNum, endNum+1):
         initList.append(i)
     return initList
 
-def multiplesHunt(list, num):
+# Function to find position of a num in a given inList
+# Returns position if found, or -1 if not
+def findPosition(inList, num):
+    returnValue = -1
+    for i in range(0, len(inList)):
+        if num == inList[i]:
+            returnValue = i
+            break
+    return returnValue
+
+# Function to hunt down and find ourselves some multiples
+def multiplesHunt(inList, num):
+    # We assume inList is in order, with max at inList(len(inList)-1)
+    print(inList)
+    currentMult = num
+    # We continue iterating if not over the end
+    if currentMult <= inList(len(inList) - 1):
+        # find position of currentMult in inList
+        print("Test")
+    # our current multiple is too big, so let's stop
+    else:
+        return inList
 
 
 def sieve(startNum, endNum):
