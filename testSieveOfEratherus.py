@@ -1,7 +1,5 @@
-from sieveOfEratherus import isPrime, sieve, multiplesHunt, makeInitList, findPosition
+from sieveOfEratherus import isPrime, sieve, multiplesClean, makeInitList, findPosition
 
 #sieve(4, 7)
 
-#print(multiplesHunt(makeInitList(2, 9), 2))
-
-print(findPosition(makeInitList(3, 7), 7))
+print(multiplesClean(makeInitList(2, 9), 3))

@@ -43,18 +43,27 @@ def findPosition(inList, num):
             break
     return returnValue
 
-# Function to hunt down and find ourselves some multiples
-def multiplesHunt(inList, num):
+# Function to hunt down and clean out the multiples
+def multiplesClean(inList, num):
     # We assume inList is in order, with max at inList(len(inList)-1)
     print(inList)
     currentMult = num
     # We continue iterating if not over the end
-    if currentMult <= inList(len(inList) - 1):
+    while currentMult <= inList[len(inList) - 1]:
         # find position of currentMult in inList
-        print("Test")
-    # our current multiple is too big, so let's stop
-    else:
-        return inList
+        currentPosition = findPosition(inList, currentMult)
+        if currentPosition != -1:
+            # Delete the current multiple at the set position
+            del inList[currentPosition]
+            # Increment the value
+            currentMult += num
+        else:
+            # We couldn't find the current multiple in out list,
+            # As we got -1 (the not found value) back from the search
+            raise ValueError
+
+    # our current multiple is now too big, so let's stop
+    return inList
 
 
 def sieve(startNum, endNum):
@@ -65,12 +74,12 @@ def sieve(startNum, endNum):
     # Iteration method to loop through list Elements
     while initList != []:
         # If initList[0] is Prime, Add to primeList
-        # multiples Hunt
-        # remove from initList
+        # multiples Clean
+        # remove from initList (handled by: multiplesClean)
         if (isPrime()):
             print("Found a prime: " + initList[0])
             primeList.append(initList[0])
-            initList = multiplesHunt(initList, initList[0])
+            initList = multiplesClean(initList, initList[0])
 
 
         del initList[0]
