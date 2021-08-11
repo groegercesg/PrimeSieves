@@ -32,6 +32,9 @@ def makeInitList(startNum, endNum):
         initList.append(i)
     return initList
 
+def multiplesHunt(list, num):
+
+
 def sieve(startNum, endNum):
     # Creation of lists
     initList = makeInitList(startNum, endNum)
@@ -39,5 +42,13 @@ def sieve(startNum, endNum):
 
     # Iteration method to loop through list Elements
     while initList != []:
-        print(initList)
+        # If initList[0] is Prime, Add to primeList
+        # multiples Hunt
+        # remove from initList
+        if (isPrime()):
+            print("Found a prime: " + initList[0])
+            primeList.append(initList[0])
+            initList = multiplesHunt(initList, initList[0])
+
+
         del initList[0]
