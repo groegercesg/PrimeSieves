@@ -71,11 +71,9 @@ def multiplesClean(inList, num):
 def sieve(startNum, endNum):
     # Validation
     if (not isinstance(startNum, int) or not isinstance(endNum, int)):
-        print("ERROR: For the range, you must enter integers")
-        return []
+        raise ValueError("ERROR: For the range, you must enter integers")
     elif (endNum < startNum):
-        print("ERROR: the Starting Number cannot be bigger than the Ending Number")
-        return []
+        raise ValueError("ERROR: the Starting Number cannot be bigger than the Ending Number")
     elif (startNum < 0 and endNum < 0):
         # There are no primes below 0
         return []
