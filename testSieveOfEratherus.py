@@ -1,10 +1,25 @@
-from sieveOfEratherus import sieve
+from sieveOfEratherus import sieve, isPrime
 import unittest
+
+class isPrimeUnitTests(unittest.TestCase):
+    def test_zero(self):
+        self.assertEqual(isPrime(0), "Special", "Is 0 a prime number")
+
+    def test_one(self):
+        self.assertEqual(isPrime(1), "Special", "Is 1 a prime number")
+
+    def test_prime(self):
+        self.assertEqual(isPrime(5), "True", "Is 5 a prime number, yes")
+
+    def test_not_prime(self):
+        self.assertEqual(isPrime(4), "False", "Is 4 a prime number, no")
+
+    def test_negative(self):
+        self.assertEqual(isPrime(-4), "Special", "Is -4 a prime number, no, but it's less than 0 so we call it special")
 
 class sieveUnitTests(unittest.TestCase):
     def test_both_negative(self):
         self.assertEqual(sieve(-5, -1), [], "Both numbers are negative") 
-
 
     def test_value_one_not_int(self):
         with self.assertRaises(ValueError) as cm:
@@ -51,8 +66,10 @@ class sieveUnitTests(unittest.TestCase):
 
     def test_one_to_ten(self):
         self.assertEqual(sieve(0, 10), [2,3,5,7], "Test one through to ten")
+    
+    def test_minus_five_to_five(self):
+        self.assertEqual(sieve(-5, 5), [2,3,5], "Test -5 to 5")
             
   
-
 if __name__ == "__main__":
     unittest.main()
