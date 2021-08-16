@@ -1,5 +1,15 @@
-from sieveOfEratherus import sieve, isPrime
+from sieveOfEratherus import sieve, isPrime, makeInitList
 import unittest
+
+class makeInitListUnitTests(unittest.TestCase):
+    def test_one_to_ten(self):
+        self.assertEqual(makeInitList(1,10), [1,2,3,4,5,6,7,8,9,10], "Basic, one to ten list")
+
+    def test_minus_five_to_positive_five(self):
+        self.assertEqual(makeInitList(-5,5), [-5,-4,-3,-2,-1,0,1,2,3,4,5], "Wrap around minus 5 to 5")
+
+    def test_nothing_in_first(self):
+        self.assertEqual(makeInitList(,5), )
 
 class isPrimeUnitTests(unittest.TestCase):
     def test_zero(self):

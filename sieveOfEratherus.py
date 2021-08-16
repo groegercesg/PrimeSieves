@@ -28,6 +28,9 @@ def isPrime(num):
 
 # Function to make the initial List
 def makeInitList(startNum, endNum):
+    # Validation
+    # Require not null for both startNum and endNum
+
     initList = []
     for i in range(startNum, endNum+1):
         initList.append(i)
