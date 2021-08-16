@@ -1,5 +1,6 @@
 import subprocess
 
 print("Dog")
-subprocess.Popen("clear", shell=True)
-print("Cat")
+print("Dog\rCat")
+print("Cat", flush=True)
+print("Dog")

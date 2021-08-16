@@ -65,7 +65,7 @@ class sieveUnitTests(unittest.TestCase):
         self.assertEqual(sieve(0,1), [], "inputs of zero and one")
 
     def test_one_to_ten(self):
-        self.assertEqual(sieve(0, 10), [2,3,5,7], "Test one through to ten")
+        self.assertEqual(sieve(1, 10), [2,3,5,7], "Test one through to ten")
     
     def test_minus_five_to_five(self):
         self.assertEqual(sieve(-5, 5), [2,3,5], "Test -5 to 5")
